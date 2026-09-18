@@ -389,3 +389,6 @@ main section[id], header[id] { scroll-margin-top: 88px; }
   .project-visual { min-height: 220px; }
   .about-detail-visual { min-height: 230px; }
 }
+
+
+.btn.is-pressed, .nav-cta.is-pressed { transform: translateY(0) scale(.98); }
