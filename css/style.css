@@ -312,3 +312,80 @@ h1 em, h2 em { color: #d5e3e9; font-weight: 400; }
   .footer-column h2 { margin-bottom: 14px; }
   .footer-bottom { font-size: .58rem; }
 }
+
+
+/* Responsive hardening — Phase 13 */
+html { overflow-x: hidden; }
+main section[id], header[id] { scroll-margin-top: 88px; }
+.brand-logo { width: 34px; height: 34px; flex: 0 0 34px; object-fit: contain; border-radius: 50%; }
+.hero, .intro, .about-detail, .services, .work, .statement, .why, .cta, .contact, .site-footer { max-width: 100%; }
+.project-image-link { min-width: 0; }
+.project-image-link img { display: block; max-width: 100%; }
+.btn, .nav-cta { white-space: nowrap; }
+@media (max-width: 1024px) {
+  :root { --gutter: clamp(24px, 4vw, 48px); }
+  .site-nav { gap: 20px; }
+  .nav-menu { gap: 18px; }
+  .nav-menu ul { gap: 16px; }
+  .hero-content { width: min(100%, 900px); }
+  .intro-content { gap: 45px; }
+  .about-detail { gap: 42px; }
+  .about-detail-visual { min-height: 440px; }
+  .project-visual { min-height: 350px; }
+  .footer-main { gap: 30px; }
+}
+@media (max-width: 768px) {
+  :root { --gutter: 24px; }
+  .section-shell { padding-inline: var(--gutter); }
+  .site-nav { width: 100%; }
+  .hero { padding-top: 105px; }
+  .hero-meta { max-width: 650px; }
+  .intro, .about-detail, .services, .work, .statement, .why, .cta, .contact { width: 100%; }
+  .about-detail-visual { width: 100%; }
+  .project-info { gap: 8px 15px; }
+}
+@media (max-width: 430px) {
+  :root { --gutter: 18px; }
+  .site-nav { min-height: 64px; padding-top: 9px; padding-bottom: 9px; }
+  .site-nav.scrolled { min-height: 62px; }
+  .menu-toggle { width: 42px; height: 42px; }
+  .nav-menu { top: 64px; padding-inline: var(--gutter); }
+  .hero { padding-top: 94px; padding-bottom: 105px; }
+  .hero-visual { right: -175px; }
+  .hero-copy { max-width: 100%; }
+  .hero-meta { gap: 7px 12px; }
+  .hero-meta span:not(:last-child)::after { margin-left: 12px; }
+  .about-detail-visual { min-height: 275px; }
+  .about-logo-frame { width: min(68%, 205px); }
+  .project-visual { min-height: 240px; }
+  .project-info { grid-template-columns: 1fr; }
+  .project-info .text-link { margin-top: 4px; }
+  .cta-inner { min-height: 390px; }
+  .cta-content { padding-inline: 16px; }
+  .cta-visual { width: 295px; }
+  .footer-main { gap: 30px; }
+}
+@media (max-width: 414px) {
+  h1 { font-size: clamp(2.75rem, 15.5vw, 4rem); }
+  .hero-actions { gap: 8px; }
+  .about-detail-visual { min-height: 260px; }
+  .about-logo-frame { width: min(66%, 195px); }
+}
+@media (max-width: 390px) {
+  :root { --gutter: 16px; }
+  .brand { gap: 8px; font-size: .73rem; }
+  .brand-logo { width: 31px; height: 31px; flex-basis: 31px; }
+  .hero { padding-bottom: 95px; }
+  .hero-visual { width: 460px; right: -180px; opacity: .22; }
+  .about-detail-visual { min-height: 245px; }
+  .about-logo-frame { width: min(64%, 180px); }
+  .cta-inner { min-height: 375px; }
+  .cta-visual { width: 270px; }
+}
+@media (max-width: 375px) {
+  .hero-copy { font-size: .86rem; }
+  .btn { padding-inline: 17px; }
+  .hero-meta { font-size: .52rem; }
+  .project-visual { min-height: 220px; }
+  .about-detail-visual { min-height: 230px; }
+}
