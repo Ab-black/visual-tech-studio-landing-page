@@ -48,3 +48,16 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-orbit-one, .hero-orbit-two, .cta-orbit-one, .cta-orbit-two { animation: none; }
 }
+
+
+/* Phase 15 — Orbital motion polish */
+.hero-orbit, .cta-orbit { will-change: transform; }
+.hero-core, .cta-core { will-change: box-shadow; }
+.hero-core, .cta-core { animation: core-glow 4.5s ease-in-out infinite; }
+@keyframes core-glow {
+  0%, 100% { box-shadow: 0 0 70px rgba(60, 200, 243, .12); }
+  50% { box-shadow: 0 0 88px rgba(60, 200, 243, .18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-core, .cta-core { animation: none; }
+}
