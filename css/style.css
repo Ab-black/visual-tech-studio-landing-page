@@ -1,3 +1,6 @@
+.skip-link { position: fixed; top: 12px; left: 12px; z-index: 2000; padding: 10px 14px; border: 1px solid var(--accent); border-radius: 7px; background: var(--surface); color: var(--text); font-size: .78rem; font-weight: 700; transform: translateY(-150%); transition: transform var(--fast) var(--ease); }
+.skip-link:focus-visible { transform: translateY(0); }
+
 :root {
   --bg: #071018;
   --surface: #0b1620;
@@ -426,4 +429,19 @@ main section[id], header[id] { scroll-margin-top: 88px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-visual, .hero-float { animation: none; }
+}
+
+
+/* Phase 16 — Accessibility & UX polish */
+button, a { -webkit-tap-highlight-color: transparent; }
+.menu-toggle { touch-action: manipulation; }
+.nav-menu[aria-hidden="true"] { pointer-events: none; }
+.text-link { min-height: 44px; display: inline-flex; align-items: center; }
+@media (max-width: 780px) {
+  .nav-link { min-height: 48px; display: flex; align-items: center; }
+  .nav-cta { min-height: 48px; display: inline-flex; align-items: center; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-float { animation: none; }
+  .hero-visual, .hero-core, .cta-core { animation: none; }
 }
