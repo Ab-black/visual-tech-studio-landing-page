@@ -11,12 +11,18 @@ function setScrolledNav() {
   nav?.classList.toggle('scrolled', window.scrollY > 24);
 }
 
+function setMenuAccessibility(isOpen = false) {
+  if (!navMenu) return;
+  navMenu.inert = window.innerWidth <= 780 && !isOpen;
+}
+
 function closeMenu() {
   menuToggle?.classList.remove('open');
   navMenu?.classList.remove('open');
   menuToggle?.setAttribute('aria-expanded', 'false');
   menuToggle?.setAttribute('aria-label', 'Open navigation menu');
   document.body.classList.remove('menu-open');
+  setMenuAccessibility(false);
 }
 
 function toggleMenu() {
@@ -25,8 +31,10 @@ function toggleMenu() {
   menuToggle?.setAttribute('aria-expanded', String(Boolean(isOpen)));
   menuToggle?.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
   document.body.classList.toggle('menu-open', Boolean(isOpen));
+  setMenuAccessibility(Boolean(isOpen));
 }
 
+setMenuAccessibility(false);
 setScrolledNav();
 window.addEventListener('scroll', setScrolledNav, { passive: true });
 
@@ -34,6 +42,7 @@ menuToggle?.addEventListener('click', toggleMenu);
 navLinks.forEach((link) => link.addEventListener('click', closeMenu));
 window.addEventListener('resize', () => {
   if (window.innerWidth > 780) closeMenu();
+  else setMenuAccessibility(navMenu?.classList.contains('open'));
 });
 
 document.addEventListener('keydown', (event) => {
@@ -57,7 +66,10 @@ if ('IntersectionObserver' in window) {
       if (!entry.isIntersecting) return;
       const id = entry.target.id;
       navLinks.forEach((link) => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        const isActive = link.getAttribute('href') === `#${id}`;
+        link.classList.toggle('active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
       });
     });
   }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
