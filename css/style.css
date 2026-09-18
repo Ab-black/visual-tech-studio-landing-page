@@ -82,7 +82,7 @@ h1 em, h2 em { color: #d5e3e9; font-weight: 400; }
 .hero-meta span:not(:last-child)::after { content: '·'; margin-left: 28px; color: var(--accent); }
 .intro { display: grid; grid-template-columns: 2fr 10fr; gap: 50px; padding-top: clamp(100px, 12vw, 170px); padding-bottom: clamp(100px, 12vw, 170px); border-top: 1px solid var(--border); }
 .intro-content { display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(40px, 8vw, 130px); }
-.intro h2, .section-heading h2, .statement h2, .contact h2, .about-detail h2, .cta h2 { font-size: clamp(2.8rem, 5vw, 5.6rem); line-height: .94; }
+.intro h2, .section-heading h2, .statement h2, .about-detail h2, .cta h2 { font-size: clamp(2.8rem, 5vw, 5.6rem); line-height: .94; }
 .intro-copy { align-self: end; }
 .intro-copy p { max-width: 520px; margin-bottom: 18px; color: var(--muted); font-size: .94rem; line-height: 1.8; }
 
@@ -134,8 +134,8 @@ h1 em, h2 em { color: #d5e3e9; font-weight: 400; }
 .project-card:first-child { grid-column: 1 / -1; }
 .project-visual { min-height: 390px; position: relative; overflow: hidden; display: grid; place-items: center; border: 1px solid var(--border); border-radius: 10px; transition: transform var(--slow) var(--ease), border-color var(--normal) ease; }
 .project-card:hover .project-visual { transform: translateY(-5px); border-color: rgba(60, 200, 243, .45); }
-.project-image-link { display: block; }
-.project-image-link img { width: 100%; height: 100%; min-height: inherit; object-fit: cover; transition: transform 700ms var(--ease), filter 500ms ease; }
+.project-image-link { display: grid; place-items: center; background: var(--surface-2); }
+.project-image-link img { width: 100%; height: 100%; min-height: inherit; object-fit: contain; transition: transform 700ms var(--ease), filter 500ms ease; }
 .project-overlay { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; background: rgba(7, 16, 24, .48); opacity: 0; transition: opacity var(--normal) ease; }
 .project-overlay span { padding: 11px 16px; border: 1px solid rgba(60, 200, 243, .55); border-radius: 999px; background: rgba(7, 16, 24, .78); color: var(--text); font-size: .68rem; font-weight: 700; letter-spacing: .12em; transform: translateY(10px); transition: transform var(--normal) var(--ease), border-color var(--normal) ease; }
 .project-image-link:hover img, .project-image-link:focus-visible img { transform: scale(1.035); filter: saturate(1.05); }
@@ -192,11 +192,6 @@ h1 em, h2 em { color: #d5e3e9; font-weight: 400; }
 .cta-float-three { top: 48%; left: 4%; }
 @keyframes cta-spin { from { transform: rotate(25deg) scaleY(.55); } to { transform: rotate(385deg) scaleY(.55); } }
 @keyframes cta-spin-reverse { from { transform: rotate(-35deg) scaleY(.55); } to { transform: rotate(-395deg) scaleY(.55); } }
-.contact { padding-top: clamp(100px, 13vw, 180px); padding-bottom: clamp(100px, 13vw, 180px); text-align: center; }
-.contact-inner { position: relative; overflow: hidden; padding: clamp(70px, 9vw, 130px) 30px; border: 1px solid var(--border); border-radius: 14px; background: radial-gradient(circle at 50% 40%, rgba(60, 200, 243, .09), transparent 38%), var(--surface); }
-.contact-inner > * { position: relative; z-index: 1; }
-.contact h2 { max-width: 900px; margin: 0 auto; }
-.contact p { max-width: 600px; margin: 30px auto; color: var(--muted); }
 .site-footer { padding-top: 35px; padding-bottom: 25px; border-top: 1px solid var(--border); }
 .footer-main { display: grid; grid-template-columns: 1fr auto; gap: 15px 40px; padding-bottom: 55px; }
 .footer-main p { color: var(--muted); font-size: .75rem; }
@@ -318,7 +313,7 @@ h1 em, h2 em { color: #d5e3e9; font-weight: 400; }
 html { overflow-x: hidden; }
 main section[id], header[id] { scroll-margin-top: 88px; }
 .brand-logo { width: 34px; height: 34px; flex: 0 0 34px; object-fit: contain; border-radius: 50%; }
-.hero, .intro, .about-detail, .services, .work, .statement, .why, .cta, .contact, .site-footer { max-width: 100%; }
+.hero, .intro, .about-detail, .services, .work, .statement, .why, .cta, .site-footer { max-width: 100%; }
 .project-image-link { min-width: 0; }
 .project-image-link img { display: block; max-width: 100%; }
 .btn, .nav-cta { white-space: nowrap; }
@@ -340,7 +335,7 @@ main section[id], header[id] { scroll-margin-top: 88px; }
   .site-nav { width: 100%; }
   .hero { padding-top: 105px; }
   .hero-meta { max-width: 650px; }
-  .intro, .about-detail, .services, .work, .statement, .why, .cta, .contact { width: 100%; }
+  .intro, .about-detail, .services, .work, .statement, .why, .cta { width: 100%; }
   .about-detail-visual { width: 100%; }
   .project-info { gap: 8px 15px; }
 }
